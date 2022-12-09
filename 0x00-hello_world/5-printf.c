@@ -1,5 +1,5 @@
 #include <stdio.h>
-/* C program that uses printf to prints to stdo */
+/* main - Entry point */
 int main(void)
 {
 	printf("with proper grammar, but the outcome is a piece of art,\n");
