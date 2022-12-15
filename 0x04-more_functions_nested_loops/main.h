@@ -3,7 +3,7 @@
 
 /**
  * file: main.h
- * Description: contains all the function prototype used in this project.
+ * Description: contains all the function prototype used in this project 0x004.
  */
 
 int _isupper(int c);
