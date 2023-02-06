@@ -4,6 +4,7 @@
 #include <fcntl.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <elf.h>
 /**
  * print_addr - prints address
  * @ptr: magic.
@@ -100,7 +101,6 @@ void print_osabi(char *ptr)
 	printf("  ABI Version:                       %d\n", ptr[8]);
 }
 
-
 /**
  * print_version - prints version
  * @ptr: magic.
@@ -133,6 +133,7 @@ void print_data(char *ptr)
 	if (data == 2)
 		printf(", big endian\n");
 }
+
 /**
  * print_magic - prints magic info.
  * @ptr: magic.
