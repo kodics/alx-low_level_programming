@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-## DYNAMIC LIBRAIRIES IN C
-This folder deals with dynamic librairies, it's target is how to create a dynamic libraries.
+# 0x18. C - Dynamic libraries
 
-there are two files for this tasks and one for advance task.
-=======
-## DYNAMIC LIBRARIES 
-This project covers the second type of library, i.e dynamic libraries 
+In this project, i learnt about what dynamic library is, how it works, how to create one and how it works. It also helped me understand the differences between static and shared libraries.
