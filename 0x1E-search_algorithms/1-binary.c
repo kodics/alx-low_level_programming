@@ -1,71 +1,43 @@
-#include "search_algos.h"
 #include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
+#include "search_algos.h"
 
 /**
- * binary_search - searches for a value in an array of
- * integers using the Binary search algorithm
- * @array: array to search the value in
- * @size: size of the array
- * @value: value to look for
+ * binary_search - Search for a value in a sorted array using binary search
+ * @array: Pointer to the first element of the sorted array to search in
+ * @size: Number of elements in the array
+ * @value: The value to search for
  *
- * Return: the index of the found value,
- * or -1 if not found
+ * Return: The index where the value is located, or -1 if not found
  */
 int binary_search(int *array, size_t size, int value)
 {
-	if (!array || size == 0)
+	int mid, i;
+	int left = 0;
+	int right = size - 1;
+
+	if (array == NULL)
 		return (-1);
 
-	return (help_binary(array, value, 0, size - 1));
-}
-
-/**
- * help_binary - searches for a value in an array of
- * integers using recursion
- * @array: array to search the value in
- * @value: value to look for
- * @lo: index of the low bound
- * @hi: index of the high bound
- *
- * Return: the index of the found value,
- * or -1 if not found
- */
-int help_binary(int *array, int value, size_t lo, size_t hi)
-{
-	size_t mid;
-
-	array_print(array, lo, hi);
-	if (hi == lo && array[lo] != value)
-		return (-1);
-
-	mid = ((hi - lo) / 2) + lo;
-	if (array[mid] == value)
-		return (mid);
-	if (array[mid] < value)
-		return (help_binary(array, value, mid + 1, hi));
-	if (array[mid] > value)
-		return (help_binary(array, value, lo, mid - 1));
-	return (-1);
-}
-
-/**
- * array_print - prints an array
- * @array: array to print
- * @lo: index of the low bound
- * @hi: index of the high bound
- */
-void array_print(int *array, size_t lo, size_t hi)
-{
-	size_t i;
-
-	printf("Searching in array: ");
-	for (i = lo; i <= hi; i++)
+	while (left <= right)
 	{
-		printf("%d", array[i]);
-		if (i < hi)
-			printf(", ");
+		mid = left + (right - left) / 2;
+
+		printf("Searching in array: ");
+		for (i = left; i <= right; i++)
+		{
+			printf("%d", array[i]);
+			if (i < right)
+				printf(", ");
+		}
+		printf("\n");
+
+		if (array[mid] == value)
+			return (mid);
+		else if (array[mid] < value)
+			left = mid + 1;
+		else
+			right = mid - 1;
 	}
-	printf("\n");
+
+	return (-1);
 }
